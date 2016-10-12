@@ -39,5 +39,5 @@ for position in positions:
     tmp['role']=header.find("h4", {"class": "item-title"}).text
     tmp['organisation-name']=header.find("h5", {"class": "item-subtitle"}).text
     tmp['description']=position.find("p", {"class": "description"}).text
-    data['workex']=tmp
-    print data['workex'] + "\n"
+    # data['workex']=tmp
+    print tmp['role'] + "\n"
