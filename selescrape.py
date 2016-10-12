@@ -46,17 +46,23 @@ data={}
 #     data['workex']=tmp
 #     print data['workex'] 
 #     print "\n"
+# print data
 
 # data["skills"]
 # Fetch the skills of the person.
-subs = soup.find("ul", {"class": "pills"}).find_all('li')
-print "Fetching skills"
-for sub in subs:
-	if 'see-less' in sub.get("class"):
-		continue
-	if 'see-more' in sub.get("class"):
-		continue
-	print sub.a.span.text
-	tmp={}
-	# print sub.find("span", {"class": "wrap"}).text
+# subs = soup.find("ul", {"class": "pills"}).find_all('li')
+# print "Fetching skills"
+# for sub in subs:
+# 	if 'see-less' in sub.get("class"):
+# 		continue
+# 	if 'see-more' in sub.get("class"):
+# 		continue
+# 	print sub.a.span.text
 
+
+# Fetch the projects of the person.
+subs = soup.find_all("li", {"class": "project"})
+print "Fetching Projects"
+for sub in subs:
+	print sub.header.text
+	print sub.p.text
