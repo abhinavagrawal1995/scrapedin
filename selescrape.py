@@ -6,7 +6,6 @@ from selenium import webdriver
 
 # make this false while development. It will use the offline profile.html file which is a lot faster.
 if(1==2):
-
 	display = Display(visible=0, size=(800, 600))
 	display.start()
 	driver = webdriver.Chrome('/usr/local/share/chromedriver')
@@ -18,7 +17,7 @@ if(1==2):
 	soup=BeautifulSoup(html)
 
 else:
-	soup=BeautifulSoup(open("profile.html"))
+	soup=BeautifulSoup(open("profile.html"), 'lxml')
 
 # "data" is the final result array that holds ALL data. 
 data={}
@@ -49,15 +48,15 @@ data={}
 #     print "\n"
 
 # data["skills"]
-# works till the skills that are viewd before the "see more" part. gives error on "see more" item.
+# Fetch the skills of the person.
 subs = soup.find("ul", {"class": "pills"}).find_all('li')
 print "Fetching skills"
 for sub in subs:
-	if sub.find(class_='skill see-less'):
+	if 'see-less' in sub.get("class"):
 		continue
-	if sub.find(class_='skill see-more'):
+	if 'see-more' in sub.get("class"):
 		continue
-	print sub
+	print sub.a.span.text
 	tmp={}
-	print sub.find("span", {"class": "wrap"}).text
+	# print sub.find("span", {"class": "wrap"}).text
 
