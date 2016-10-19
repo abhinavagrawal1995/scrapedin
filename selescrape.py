@@ -72,6 +72,8 @@ def parseData(linkedinProfile):
 
 with open("linkedinProfile.csv", "r") as filestream:
     for line in filestream:
+    	line= line[1:-2]
+    	print line
         parseData(line)
 
 # parseData("https://www.linkedin.com/in/shashankgaurav")
