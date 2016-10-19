@@ -16,7 +16,7 @@ def parseData(linkedinProfile):
 	display.start()
 	driver = webdriver.Chrome('/usr/local/share/chromedriver')
 
-	profile_link="https://www.linkedin.com/in/shashankgaurav"
+	profile_link=linkedinProfile
 	driver.get(profile_link)
 
 	html=driver.page_source
